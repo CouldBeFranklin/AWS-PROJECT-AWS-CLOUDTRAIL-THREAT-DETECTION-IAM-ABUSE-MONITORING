@@ -43,3 +43,36 @@ This project reflects how real-world Cloud SOC and Cloud Security Engineering te
 
 
 # <p align = center> STEPS INVOLVED
+
+
+
+
+
+## STEP 1 - ENABLING AWS CLOUDTRAIL
+-	I enabled AWS CloudTrail to capture management (control-plane) events across the entire AWS account.
+-	I created a new CloudTrail trail
+-	I enabled both Read and Write management events
+-	I applied the trail to all AWS regions to avoid blind spots
+-	I enabled log file integrity validation
+-	An IAM role that allowed CloudTrail to send logs to CloudWatch was also created together with the trail
+-	I configured CloudTrail to deliver logs to:
+	Amazon S3 for long-term storage and auditing
+	Amazon CloudWatch Logs for near-real-time detection
+<p>This ensured full visibility into IAM actions, authentication attempts, and sensitive account-level API calls.
+
+
+
+![CT-IMGS](CT-IMGS/trail-create.jpg)
+
+
+
+## STEP 2 - CLOUDWATCH LOG GROUP VERIFICATION
+-	After enabling log delivery, I verified that CloudTrail events were successfully reaching CloudWatch Logs.
+-	The CloudWatch log group was created automatically
+-	Log streams were actively receiving events
+-	CloudTrail records were in valid JSON format
+-	This confirmed that control-plane activity was being ingested correctly.
+
+
+
+![CT-IMGS](CT-IMGS/traillog-confirm.jpg)
