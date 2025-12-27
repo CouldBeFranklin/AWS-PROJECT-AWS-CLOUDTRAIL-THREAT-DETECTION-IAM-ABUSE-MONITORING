@@ -176,3 +176,48 @@ To validate the setup, I performed controlled testing:
 
 
 
+
+## SECURITY VALUE AND USE CASES
+This implementation provides:
+-	Early detection of compromised credentials
+-	Visibility into unauthorized privilege escalation
+-	Monitoring of audit-log tampering attempts
+-	Faster incident response capability
+-	Improved compliance and audit readiness
+
+
+
+
+
+
+## CHALLENGES ENCOUNTERED
+During this project, I encountered several challenges:
+-	Writing accurate metric filter patterns
+-	Accounting for CloudWatch evaluation delays
+<P>I resolved these challenges through, documentation review, Google and AI search and iterative testing.
+
+
+
+
+
+## WHAT I LEARNT
+Through this project, I gained hands-on experience with:
+-	Control-plane security monitoring in AWS
+-	IAM abuse detection techniques
+-	CloudTrail log analysis
+-	How to write CloudWatch metric filter patterns
+
+
+
+
+# <p align=center>ROUGH WORK
+
+
+
+![CT-IMGS](CT-IMGS/rough.jpg)
+
+
+
+
+
+
