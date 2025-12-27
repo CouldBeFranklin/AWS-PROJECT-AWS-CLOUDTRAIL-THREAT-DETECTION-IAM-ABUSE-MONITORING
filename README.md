@@ -125,7 +125,54 @@ Attackers often attempt to disable logging to hide their actions.
 
 
 
+
 ![CT-IMGS](CT-IMGS/snstopic.jpg)
+
+
+
+
+## STEP 6 – CREATING CLOUDWATCH ALARMS
+-	I configured CloudWatch alarms for near-immediate detection of suspicious activity for each metric filter I created. 
+-	Alarm Configuration Used
+
+|Setting	|Value|
+|:---------:|:----------:|
+|Statistic	|Sum|
+|Period	|1 minute|
+|Threshold |	≥ 1|
+
+-	This configuration was used for each metric filter
+-	The SNS topic initially created was attached to each alarm, this allows for near immediate reception of email notification from the topic anytime an alarm was triggered
+
+
+![CT-IMGS](CT-IMGS/alarms-created.jpg)
+
+
+
+
+
+## STEP 7 - VALIDATION AND TESTING
+To validate the setup, I performed controlled testing:
+-	I executed test IAM actions manually
+-	I confirmed the corresponding CloudTrail events appeared in CloudWatch Logs
+-	I verified metric filters incremented correctly
+-	I observed alarms transitioning to the ALARM state
+-	I received email notifications via SNS
+<p>This confirmed that the detection and alerting pipeline was functioning end-to-end.
+
+
+
+![CT-IMGS](CT-IMGS/test1.jpg)
+
+![CT-IMGS](CT-IMGS/test2.jpg)
+
+![CT-IMGS](CT-IMGS/test3.jpg)
+
+![CT-IMGS](CT-IMGS/test4.jpg)
+
+![CT-IMGS](CT-IMGS/test5.jpg)
+
+
 
 
 
