@@ -76,3 +76,56 @@ This project reflects how real-world Cloud SOC and Cloud Security Engineering te
 
 
 ![CT-IMGS](CT-IMGS/traillog-confirm.jpg)
+
+![CT-IMGS](CT-IMGS/confirm-logging.jpg)
+
+
+
+
+## STEP 3 - THREAT DETECTION USE CASES
+I selected the following high-risk IAM and account activities based on common real-world attack techniques.
+#### Root Account Usage
+- Best practices advices against the use of Root account for daily activities.
+- Root account usage is extremely rare and often indicates an emergency or compromise.
+#### Console Login Without MFA
+Console logins without MFA significantly increase the risk of account takeover.
+#### IAM Policy Changes (Privilege Escalation)
+Changes to IAM policies can indicate privilege escalation attempts and so it is advisable to keep that in check.
+#### Access Key Creation
+Access key creation enables long-term programmatic access and is a common attacker objective and so it is also advisable to keep it in check
+#### CloudTrail Tampering Attempts
+Attackers often attempt to disable logging to hide their actions.
+
+
+
+
+## STEP 4 - CREATING CLOUDWATCH METRIC FILTERS BASED ON THE ABOVE ACCOUNT ACTIVITIES.
+- For each detection use case, I created CloudWatch metric filters to transform raw CloudTrail log events into measurable security signals.
+- First, I have to simulate these events so there will be an available log to test the filter patterns for the metric filter
+- After this I went ahead to create metric filter, using the appropriate JSON for each detection and testing the filter pattern to make sure it is accurate.
+- These were done under the log group for the CloudTrail logging
+- The metric filter for the 5 activities was all created and ready for use.
+
+
+
+
+![CT-IMGS](CT-IMGS/Metrics1.jpg)
+
+
+![CT-IMGS](CT-IMGS/metrics2.jpg)
+
+
+
+
+
+## STEP 5 - SNS ALERTING 
+-	To centralize alert delivery, I created a single Amazon SNS topic.
+-	I subscribed my email to the topic
+-	A confirmation email was sent to me, which I confirmed.
+
+
+
+![CT-IMGS](CT-IMGS/snstopic.jpg)
+
+
+
